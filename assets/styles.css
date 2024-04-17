@@ -71,3 +71,13 @@ select:focus {
     border-color: #3498db;
     box-shadow: 0 0 3px #3498db;
 }
+
+@media (max-width: 600px) {
+    form {
+        width: 90%; /* Ajusta a largura para ser 90% da tela em dispositivos móveis */
+        padding: 10px; /* Reduz o padding para economizar espaço */
+    }
+    body {
+        padding: 10px; /* Reduz o padding do corpo para manter consistência */
+    }
+}
