@@ -1,83 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
 body {
     font-family: 'Poppins', sans-serif;
-    padding: 20px;
     background-color: #f4f4f4;
     color: #333;
-}
-
-h2 {
-    text-align: center;
-    color: #2c3e50;
-}
-
-form {
-    width: 500px;
-    margin: 40px auto;
+    margin: 0;
     padding: 20px;
-    background: #fff;
+}
+
+#form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
 }
 
-label {
-    font-weight: 600;
-    display: block;
-    margin: 15px 0 5px;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="date"],
-input[type="tel"],
-input[type="file"],
+/* Aplicar um reset para o estilo de seleção para padronização entre navegadores */
 select {
     width: 100%;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-top: 8px;
+    margin-bottom: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    background-color: white;
-    box-sizing: border-box; /* garante que o padding e border sejam incluídos na largura total */
-    -webkit-appearance: none; /* Remove a aparência padrão do Chrome/Safari */
-    -moz-appearance: none;    /* Remove a aparência padrão do Firefox */
-    appearance: none;         /* Remove a aparência padrão */
+    -webkit-appearance: none; /* Desabilita a aparência padrão no WebKit browsers */
+    -moz-appearance: none; /* Desabilita a aparência padrão no Firefox */
+    appearance: none; /* Desabilita a aparência padrão */
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23007BFF" d="M7 10l5 5 5-5z"/></svg>') no-repeat;
+    background-position: right 10px top 50%;
+    background-size: 12px;
+    cursor: pointer;
 }
 
-/* Para adicionar uma seta personalizada no select */
-select {
-    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill="%23000" d="M5 8l5 5 5-5z"/></svg>');
-    background-repeat: no-repeat;
-    background-position: right 10px center;
-    background-size: 12px 12px;
-}
-
-/* Estilizar elementos específicos para Firefox */
-@-moz-document url-prefix() {
-    select {
-        padding-right: 30px; /* espaço adicional para a seta */
-    }
-}
-
-/* Estilizar o foco dos inputs e selects */
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="date"]:focus,
-input[type="tel"]:focus,
-input[type="file"]:focus,
+/* Estilo quando o usuário foca no elemento usando teclado ou mouse */
 select:focus {
-    outline: none;
-    border-color: #3498db;
-    box-shadow: 0 0 3px #3498db;
+    outline: none; /* Remove o contorno padrão do foco */
+    border-color: #007BFF; /* Cor azulada para o foco, como no botão */
 }
 
-@media (max-width: 600px) {
-    form {
-        width: 90%; /* Ajusta a largura para ser 90% da tela em dispositivos móveis */
-        padding: 10px; /* Reduz o padding para economizar espaço */
+/* Ajustes adicionais para o foco no Firefox */
+@-moz-document url-prefix() {
+    select:focus {
+        border: 2px solid #007BFF;
     }
-    body {
-        padding: 10px; /* Reduz o padding do corpo para manter consistência */
-    }
+}
+
+/* Estilo do botão */
+button {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos gerais para labels e inputs para alinhamento */
+label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+}
+
+input[type="text"], input[type="date"], input[type="email"], input[type="text"]:focus, input[type="date"]:focus, input[type="email"]:focus {
+    width: calc(100% - 22px); /* Largura total menos o padding */
+    padding: 10px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none; /* Remove o contorno padrão de foco */
+}
+
+/* Estilo para o foco em inputs */
+input[type="text"]:focus, input[type="date"]:focus, input[type="email"]:focus {
+    border-color: #007BFF; /* Cor azulada para o foco, como no botão */
 }
