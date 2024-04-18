@@ -12,7 +12,7 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 400px;
     margin: auto;
@@ -26,9 +26,12 @@ select {
     margin-bottom: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    -webkit-appearance: none; /* Desabilita a aparência padrão no WebKit browsers */
-    -moz-appearance: none; /* Desabilita a aparência padrão no Firefox */
-    appearance: none; /* Desabilita a aparência padrão */
+    -webkit-appearance: none;
+    /* Desabilita a aparência padrão no WebKit browsers */
+    -moz-appearance: none;
+    /* Desabilita a aparência padrão no Firefox */
+    appearance: none;
+    /* Desabilita a aparência padrão */
     background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23007BFF" d="M7 10l5 5 5-5z"/></svg>') no-repeat;
     background-position: right 10px top 50%;
     background-size: 12px;
@@ -37,8 +40,10 @@ select {
 
 /* Estilo quando o usuário foca no elemento usando teclado ou mouse */
 select:focus {
-    outline: none; /* Remove o contorno padrão do foco */
-    border-color: #007BFF; /* Cor azulada para o foco, como no botão */
+    outline: none;
+    /* Remove o contorno padrão do foco */
+    border-color: #007BFF;
+    /* Cor azulada para o foco, como no botão */
 }
 
 /* Ajustes adicionais para o foco no Firefox */
@@ -70,17 +75,27 @@ label {
     font-weight: 600;
 }
 
-input[type="text"], input[type="date"], input[type="email"], input[type="text"]:focus, input[type="date"]:focus, input[type="email"]:focus {
-    width: calc(100% - 22px); /* Largura total menos o padding */
+input[type="text"],
+input[type="date"],
+input[type="email"],
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus {
+    width: calc(100% - 22px);
+    /* Largura total menos o padding */
     padding: 10px;
     margin-top: 8px;
     margin-bottom: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    outline: none; /* Remove o contorno padrão de foco */
+    outline: none;
+    /* Remove o contorno padrão de foco */
 }
 
 /* Estilo para o foco em inputs */
-input[type="text"]:focus, input[type="date"]:focus, input[type="email"]:focus {
-    border-color: #007BFF; /* Cor azulada para o foco, como no botão */
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="email"]:focus {
+    border-color: #007BFF;
+    /* Cor azulada para o foco, como no botão */
 }
