@@ -1,5 +1,6 @@
 // Esse é o token de acesso à API CpfCnpj - Ainda não sei como armazenar e utilizá-la com segurança
 const tokenApiCpfCnpj = '5ae973d7a997af13f0aaf2bf60e65803'
+
 // A variável cpfConsultado serve para validar se o usuário não está tentando consultar novamente o mesmo CPF. Isso evita o gasto desnecessário de créditos.
 let cpfConsultado = ''
 
@@ -51,7 +52,7 @@ async function consultarCpf(cpf) {
     }
 }
 
-
+// Realiza um GET na API viacep e retorna um objeto com informações do endereço que são imputadas em seus respectivos campos. Após, dá foco no campo de número para o usuário continuar o preenchimento.
 async function consultarCep(cep) {
     const response = await (await fetch(`https://viacep.com.br/ws/${cep}/json/`)).json()
 
