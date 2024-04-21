@@ -1,6 +1,3 @@
-// Esse é o token de acesso à API CpfCnpj - Ainda não sei como armazenar e utilizá-la com segurança
-const tokenApiCpfCnpj = '5ae973d7a997af13f0aaf2bf60e65803'
-
 // A variável cpfConsultado serve para validar se o usuário não está tentando consultar novamente o mesmo CPF. Isso evita o gasto desnecessário de créditos.
 let cpfConsultado = ''
 
