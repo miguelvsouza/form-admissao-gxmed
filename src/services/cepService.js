@@ -9,12 +9,5 @@ export async function consultarCepService(cep) {
         throw new Error('CEP não encontrado')
     }
 
-    return {
-        "cep": data.cep,
-        "logradouro": data.logradouro,
-        "bairro": data.bairro,
-        "cidade": data.localidade,
-        "uf": data.uf,
-        "ibge": data.ibge
-    }
+    return data
 }

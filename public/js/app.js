@@ -53,7 +53,7 @@ async function consultarCpf(cpf) {
 async function consultarCep(cep) {
     const response = await (await fetch(`https://viacep.com.br/ws/${cep}/json/`)).json()
 
-    if (response.erro === true) {
+    if (response.erro) {
         alert('CEP não encontrado')
     } else {
         for (const key in response) {
