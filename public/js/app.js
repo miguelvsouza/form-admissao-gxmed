@@ -1,6 +1,25 @@
 // A variável cpfConsultado serve para validar se o usuário não está tentando consultar novamente o mesmo CPF. Isso evita o gasto desnecessário de créditos.
 let cpfConsultado = ''
 
+// Event listener para o campo de CPF que chama a função formatCpf
+document.getElementById('cpf').addEventListener('input', function (e) {
+    e.target.value = formatCpf(e.target.value)
+    const cpf = e.target.value.replace(/\D/g, "")
+    if (cpf.length == 11 && cpf != cpfConsultado) {
+        consultarCpf(cpf)
+    }
+})
+
+// Event listener para o campo de CEP que chama a função formatCep e caso o CEP já esteja preenchido chama também a função consultaCep
+document.getElementById('cep').addEventListener('input', function (e) {
+    e.target.value = formatCep(e.target.value)
+
+    const cep = e.target.value.replace(/\D/g, "")
+    if (cep.length == 8) {
+        consultarCep(cep)
+    }
+})
+
 // Formatação do value do campo CPF para o formato "000.000.000-00"
 function formatCpf(cpf) {
     cpf = cpf.replace(/\D/g, "")
@@ -31,9 +50,9 @@ function convertDateFormat(dateString) {
 
 // Quando essa função é chamada, realiza um GET na API CpfCnpj e retorna um objeto com informações como nome, data de nascimento, nome da mãe e gênero que são imputadas aos campos do formulário através de um for in
 async function consultarCpf(cpf) {
-    const response = await (await fetch(`https://api.cpfcnpj.com.br/${tokenApiCpfCnpj}/2/${cpf}`)).json()
+    const response = await (await fetch(`http://localhost:3000/api/cpfcnpj/${cpf}`)).json()
 
-    if (response.status == '1') {
+    if (response.status == 1) {
         cpfConsultado = cpf
         for (const key in response) {
             if (document.getElementById(key)) {
@@ -51,7 +70,8 @@ async function consultarCpf(cpf) {
 
 // Realiza um GET na API viacep e retorna um objeto com informações do endereço que são imputadas em seus respectivos campos. Após, dá foco no campo de número para o usuário continuar o preenchimento.
 async function consultarCep(cep) {
-    const response = await (await fetch(`https://viacep.com.br/ws/${cep}/json/`)).json()
+    const req = await fetch(`http://localhost:3000/api/cep/${cep}`)
+    const response = await req.json()
 
     if (response.erro) {
         alert('CEP não encontrado')
@@ -64,22 +84,3 @@ async function consultarCep(cep) {
         document.getElementById('numero').focus()
     }
 }
-
-// Event listener para o campo de CPF que chama a função formatCpf
-document.getElementById('cpf').addEventListener('input', function (e) {
-    e.target.value = formatCpf(e.target.value)
-    const cpf = e.target.value.replace(/\D/g, "")
-    if (cpf.length == 11 && cpf != cpfConsultado) {
-        consultarCpf(cpf)
-    }
-})
-
-// Event listener para o campo de CEP que chama a função formatCep e caso o CEP já esteja preenchido chama também a função consultaCep
-document.getElementById('cep').addEventListener('input', function (e) {
-    e.target.value = formatCep(e.target.value)
-
-    const cep = e.target.value.replace(/\D/g, "")
-    if (cep.length == 8) {
-        consultarCep(cep)
-    }
-})
