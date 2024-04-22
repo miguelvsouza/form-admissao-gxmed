@@ -50,7 +50,8 @@ function convertDateFormat(dateString) {
 
 // Quando essa função é chamada, realiza um GET na API CpfCnpj e retorna um objeto com informações como nome, data de nascimento, nome da mãe e gênero que são imputadas aos campos do formulário através de um for in
 async function consultarCpf(cpf) {
-    const response = await (await fetch(`http://localhost:3000/api/cpfcnpj/${cpf}`)).json()
+    const req = await fetch(`http://localhost:3000/api/cpfcnpj/${cpf}`)
+    const response = await req.json()
 
     if (response.status == 1) {
         cpfConsultado = cpf

@@ -5,8 +5,11 @@ import routes from './routes/index.js'
 const PORT = process.env.PORT
 const app = express()
 
+app.use(cors({
+    origin: '*'
+}))
+
 app.use('/api', routes)
-app.use(cors())
 
 app.listen(PORT, () => {
     console.log(`Server is running in port ${PORT}`)
