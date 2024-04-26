@@ -8,6 +8,10 @@ body {
     padding: 20px;
 }
 
+#title {
+    text-align: center;
+}
+
 #form {
     background-color: white;
     padding: 20px;
@@ -78,9 +82,11 @@ label {
 input[type="text"],
 input[type="date"],
 input[type="email"],
+input[type="file"],
 input[type="text"]:focus,
 input[type="date"]:focus,
-input[type="email"]:focus {
+input[type="email"]:focus,
+input[type="file"]:focus {
     width: calc(100% - 22px);
     /* Largura total menos o padding */
     padding: 10px;
